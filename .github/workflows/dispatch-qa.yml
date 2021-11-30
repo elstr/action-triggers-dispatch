@@ -7,7 +7,7 @@ jobs:
   dispatch:
     strategy:
       matrix:
-        repo: ['elstr/repo-with-serverless-deploy-1', 'elstr/repo-with-serverless-deploy-2']
+        repo: ['elstr/repo-with-serverless-deploy', 'elstr/repo-with-serverless-deploy-2']
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch

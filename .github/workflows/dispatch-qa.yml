@@ -15,7 +15,7 @@ jobs:
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: ${{ matrix.repo }}
-          event-type: redeploy
+          event-type: changes-in-api
           client-payload: '{"branch": "qa"}'
 
 

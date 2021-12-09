@@ -1,0 +1,22 @@
+name: QA merge - deploy lambdas
+on:
+  push:
+    branches:
+      - qa
+
+jobs:
+  deploy_qa:
+    environment: qa
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['14']
+
+    steps:
+      - name: Trigger lambda deploy
+        run: |
+          curl \
+          -H "Authorization: token ${{ secrets.CURL_TOKEN }}" \
+          --request POST \
+          --data '{"ref": "qa"}' \
+          https://api.github.com/repos/elstr/repo-with-serverless-deploy-2/actions/workflows/deploy-qa.yml/dispatches

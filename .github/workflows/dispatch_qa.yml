@@ -16,7 +16,11 @@ jobs:
       - name: Trigger lambda deploy
         run: |
           curl \
-          -H "Authorization: token ${{ secrets.CURL_TOKEN }}" \
+          --header 'authorization: token ${{ secrets.CURL_TOKEN }}' \
           --request POST \
           --data '{"ref": "qa"}' \
           https://api.github.com/repos/elstr/repo-with-serverless-deploy-2/actions/workflows/deploy-qa.yml/dispatches
+
+
+
+# -H "Authorization: token ${{ secrets.CURL_TOKEN }}" \

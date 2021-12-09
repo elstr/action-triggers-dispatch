@@ -1,8 +1,8 @@
-name: Dispatch deploy lambdas on merge to qa
+name: Dispatch deploy lambdas on merge to master
 on:
   push:
     branches:
-      - qa
+      - master
 jobs:
   dispatch:
     strategy:
@@ -16,7 +16,7 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: ${{ matrix.repo }}
           event-type: changes-in-api
-          client-payload: '{"branch": "qa"}'
+          client-payload: '{"env": "production"}'
 
 
 
